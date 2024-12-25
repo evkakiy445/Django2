@@ -1,0 +1,37 @@
+{% extends 'records/layout.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Рекорды сайта</h1>
+
+    <a href="{% url 'records:add_record_view' %}" class="btn btn-primary">Добавить результат</a>
+
+    <div class="records-container">
+        {% for record in records %}
+        <div class="record-table">
+            <h2>{{ record.name }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Место</th>
+                        <th>Пользователь</th>
+                        <th>Результат (кг)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in record.data %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.user.username }}</td>
+                        <td>{{ item.weight }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Пожалуйста, авторизируйтесь, чтобы получить доступ к рекордам сайта</p>
+{% endif %}
+{% endblock %}

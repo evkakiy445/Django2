@@ -1,0 +1,57 @@
+{% extends 'workout/layout.html' %}
+{% block title %}{{ program.title }}{% endblock %}
+
+{% block content %}
+<main class="program-detail-container">
+        <h1 class="program-title">{{ program.title }}</h1>
+
+        <div class="program-overview">
+            <div class="program-image">
+                <img src="{{ program.image.url }}" alt="{{ program.title }}">
+            </div>
+            <div class="program-info">
+                <p><strong>Описание:</strong> {{ program.description }}</p>
+            </div>
+        </div>
+
+        <section class="muscle-groups-section">
+            <h2>Группы мышц</h2>
+            <ul class="muscle-groups">
+                {% for muscle_group in program.muscle_groups.all %}
+                <li class="muscle-group">
+                    <img src="{{ muscle_group.image.url }}" alt="{{ muscle_group.name }}">
+                    <div class="muscle-group-content">
+                        <div class="muscle-group-details">
+                            <strong>{{ muscle_group.name }}</strong>
+                            <p><strong>Сложность:</strong> {{ program.difficulty_level }}</p>
+                            <p><strong>Тип тренировки:</strong> {{ program.workout_type }}</p>
+                            <p><strong>Место:</strong> {{ program.training_place }}</p>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="exercises-section">
+            <h2>Упражнения</h2>
+            <ul class="exercises">
+                {% for exercise in program.exercises.all %}
+                <li class="exercise">
+                    <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
+                    <div>
+                        <strong>{{ exercise.name }}</strong>
+                        <p>{{ exercise.technique_description }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+    <a href="{% url 'workout_list' %}" class="back-link">Назад к списку</a>
+    <a href="{% url 'program_reviews' program.pk %}" class="back-link">Читать отзывы</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'add_review' program.pk %}" class="back-link" >Добавить отзыв</a>
+{% endif %}
+</main>
+{% endblock %}

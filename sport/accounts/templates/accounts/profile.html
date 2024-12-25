@@ -1,0 +1,103 @@
+{% extends 'accounts/layout.html' %}
+
+{% block title %}Ваш профиль{% endblock %}
+
+{% block content %}
+<div class="container mt-5 profile-container">
+    <div class="profile-header">
+        <h2>Добро пожаловать, {{ user.username }}!</h2>
+        <div class="logout-btn-container">
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger logout-btn">
+                    Выйти <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <h3>Ваши избранные программы:</h3>
+    <div class="programs-list">
+        {% for favorite in favorite_programs %}
+        <div class="program">
+            <a href="{% url 'workout_detail' favorite.program.id %}">
+                <div class="program-image">
+                    <img src="{{ favorite.program.image.url }}" alt="{{ favorite.program.title }}">
+                </div>
+                <h4 class="program-title">{{ favorite.program.title }}</h4>
+            </a>
+            <div class="favorite-btn">
+                <a href="{% url 'remove_from_favorites' favorite.program.id %}" class="btn btn-danger">Удалить</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>У вас нет избранных программ.</p>
+        {% endfor %}
+    </div>
+
+    <h3>Отслеживание веса:</h3>
+    <div class="weight-tracking">
+        {% for weight in weight_tracking %}
+        <div class="weight-entry">
+            <p>{{ weight.weight }} кг, {{ weight.date }}
+                <form action="{% url 'delete_weight_tracking' weight.pk %}" method="post" class="delete-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </p>
+        </div>
+        {% empty %}
+        <p>Нет записей о вашем весе.</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'add_weight_tracking' %}" class="btn btn-primary">Добавить запись веса</a>
+
+    <h3>Добавить результат тренировки:</h3>
+    <div class="add-workout-results">
+        {% for program in favorite_programs %}
+        {% for exercise in program.program.exercises.all %}
+        <a href="{% url 'add_workout_result' program_pk=program.program.id exercise_pk=exercise.id %}" class="btn btn-primary">Добавить результат для {{ exercise.name }}</a>
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+    <h3>Ваши результаты:</h3>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Упражнение</th>
+                <th scope="col">Повторения</th>
+                <th scope="col">Вес (кг)</th>
+                <th scope="col">Дата тренировки</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in workout_results %}
+            <tr>
+                <td>{{ result.exercise.name }}</td>
+                <td>{{ result.repetitions }}</td>
+                <td>{{ result.weight }}</td>
+                <td>{{ result.workout_date }}</td>
+                <td>
+                    <form action="{% url 'delete_workout_result' result.pk %}" method="post" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">Нет результатов тренировок.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

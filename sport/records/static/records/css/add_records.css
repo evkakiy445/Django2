@@ -1,0 +1,84 @@
+/* Контейнер для формы */
+.form-container {
+    background-color: #333;  /* Темный фон */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок формы */
+.form-container h1 {
+    text-align: center;
+    color: #fff;  /* Белый цвет для заголовка */
+    margin-bottom: 20px;
+}
+
+/* Стиль для каждого поля формы */
+.form-container p {
+    margin-bottom: 15px;  /* Отступ между полями */
+}
+
+/* Стили для полей ввода */
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ddd;  /* Светлая граница */
+    border-radius: 5px;
+    background-color: #444;  /* Тёмный фон для полей */
+    color: #fff;  /* Белый текст */
+    font-size: 16px;
+}
+
+/* Фокус на полях ввода */
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #007BFF;  /* Синий цвет рамки при фокусе */
+    background-color: #555;  /* Темнее фон */
+    outline: none;  /* Убираем стандартный обвод */
+}
+
+/* Стилизация кнопки */
+.form-container button {
+    display: inline-block;
+    width: 100%;  /* Кнопка на всю ширину */
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;  /* Белый текст */
+    background-color: #007BFF;  /* Зеленый фон */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Эффект наведения на кнопку */
+.form-container button:hover {
+    background-color: #0056b3; /* Более темный синий */
+    transform: translateY(-2px); /* Подъем кнопки */
+}
+
+/* Эффект при нажатии на кнопку */
+.form-container button:active {
+    background-color: #0056b3;  /* Ещё более темный зеленый */
+    transform: translateY(0);  /* Убираем подъем */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность формы для мобильных устройств */
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;  /* Уменьшаем ширину формы на маленьких экранах */
+    }
+
+    .form-container button {
+        font-size: 16px;  /* Уменьшаем шрифт кнопки */
+    }
+}

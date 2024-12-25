@@ -1,0 +1,365 @@
+/* Общие стили для body и html */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #222;  /* Темный фон */
+  color: #fff;  /* Белый текст по умолчанию */
+}
+
+/* Основной контейнер для всего контента */
+#content-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Заголовок и навигация */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;  /* Центрируем элементы навигации */
+  align-items: center;
+  position: relative;  /* Чтобы иконка профиля оставалась на своем месте */
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s  /* Добавляем плавное увеличение */
+}
+
+header nav ul li a:hover {
+  color: #007BFF;  /* Цвет текста меняется на синий */
+}
+
+/* Профиль и иконка */
+.profile-icon {
+    margin-right: 15px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.profile-icon:hover {
+  color: #007BFF;  /* Цвет иконки меняется на синий */
+}
+
+/* Основной контент */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #333;  /* Темный фон для основного контента */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Нижний колонтитул */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+footer nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+footer nav ul li a:hover {
+  color: #007BFF;  /* Цвет текста меняется на синий */
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Hero секция */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BFF;  /* Заменили на синий */
+  color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  height: 50vh; /* Это позволяет hero-секции занимать половину экрана по высоте */
+}
+
+.hero .text-content {
+  flex: 1;
+  max-width: 50%;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  background-color: #fff;
+  color: #007BFF;  /* Заменили на синий */
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #0056b3;  /* Заменили на синий */
+  color: #fff;
+}
+
+.hero .btn i {
+  margin-left: 10px; /* Отступ слева для иконки */
+  font-size: 18px;  /* Размер иконки */
+  transition: transform 0.3s; /* Плавное увеличение при наведении */
+}
+
+.hero .btn:hover i {
+  transform: translateX(5px); /* Легкое движение вправо при наведении */
+}
+
+/* Контейнер для изображения справа от кнопки */
+.hero .image-placeholder {
+  flex: 1;
+  max-width: 40%;
+  padding-left: 20px;  /* Отступ от текста */
+}
+
+.hero .image-placeholder img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Популярные программы */
+.popular-programs {
+  text-align: center;
+  padding: 40px;
+}
+
+.popular-programs h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.programs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.program {
+  background-color: #444;  /* Темный фон для программ */
+  width: 220px;  /* Ширина */
+  height: 220px;  /* Высота (делаем панели квадратными) */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-decoration: none; /* Убираем подчеркивание ссылок */
+  color: #fff;  /* Белый текст */
+}
+
+.program:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Добавим блок для изображения */
+.program img {
+  width: 100%;
+  height: 220px;  /* Ограничиваем высоту изображения */
+  object-fit: cover;  /* Обрезаем изображение, чтобы оно заполнило блок */
+  border-radius: 5px;
+  margin-bottom: 10px;  /* Отступ от текста */
+}
+
+
+
+/* Кнопка меню для мобильных устройств */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  position: absolute;
+  top: 60px; /* Позиционирование меню */
+  right: 0;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+/* Активное состояние выпадающего меню */
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Профиль и иконка */
+.profile-icon {
+    display: block;
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  right: 15px;
+  top: 50%;  /* Центрируем по вертикали */
+  transform: translateY(-50%); /* Сдвигаем иконку для идеального центрирования */
+}
+
+.profile-icon:hover {
+  color: #007BFF;  /* Цвет иконки меняется на синий */
+}
+
+@media (max-width: 768px) {
+  /* Скрываем обычное меню и показываем кнопку */
+  header nav ul {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Показываем выпадающее меню на мобильных */
+  .dropdown-menu.active {
+    display: block;
+    width: 100%;
+  }
+
+  /* Профильная иконка остается видимой и закреплена в правом верхнем углу */
+  .profile-icon {
+    display: block;
+    right: 5px;
+    z-index: 1000; /* Чтобы иконка была поверх других элементов */
+  }
+
+  header nav {
+      display: flex;
+      justify-content: flex-start;  /* Центрируем элементы навигации */
+      align-items: center;
+      position: relative;  /* Чтобы иконка профиля оставалась на своем месте */
+    }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* Вертикальная компоновка */
+    padding: 20px 10px;
+  }
+
+  .hero .text-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-align: center; /* Центрируем текст */
+  }
+
+  .hero .text-content h1 {
+    font-size: 24px;
+  }
+
+  .hero .text-content p {
+    font-size: 14px;
+  }
+
+  .hero .btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .hero .image-placeholder {
+    max-width: 100%;
+    display: flex; /* Добавляем flex-контейнер */
+    justify-content: center; /* Центрируем содержимое горизонтально */
+  }
+
+  .hero .image-placeholder img {
+    width: 80%; /* Уменьшаем ширину изображения */
+    height: auto; /* Поддерживаем пропорции изображения */
+    border-radius: 8px; /* Округляем края */
+  }
+}
+

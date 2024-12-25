@@ -1,0 +1,37 @@
+{% extends 'exercises/layout.html' %}
+{% load static %}
+
+{% block title %}Список упражнений{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container">
+            <h1 class="page-title">Список упражнений</h1>
+
+            <!-- Форма поиска -->
+            <form method="get" action="{% url 'exercise_list' %}" class="search-form">
+                <input type="text" name="q" placeholder="Поиск по названию" value="{{ query }}" class="search-input">
+                <button type="submit" class="search-button">Поиск</button>
+                <a href="{% url 'exercise_list' %}" class="reset-button">Сбросить</a>
+            </form>
+
+            <!-- Список упражнений -->
+            <div class="exercise-list">
+                {% for exercise in exercises %}
+                    <div class="exercise-card">
+                    <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}" class="exercise-image">
+                    <div class="exercise-details">
+                        <h2 class="exercise-name">{{ exercise.name }}</h2>
+                        <p class="exercise-description">{{ exercise.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+                {% empty %}
+                    <p>Упражнения не найдены</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>Пожалуйста, авторизируйтесь, чтобы получить доступ к списку упражений</p>
+    {% endif %}
+{% endblock %}

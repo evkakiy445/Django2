@@ -1,0 +1,310 @@
+/* Общие стили для body и html */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #222;  /* Темный фон */
+  color: #fff;  /* Белый текст по умолчанию */
+}
+
+
+.home-icon {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 20px;  /* Отступ слева */
+  position: absolute; /* Позиционируем иконку относительно родителя */
+  left: 20px;  /* Расположим иконку слева */
+  top: 50%;  /* Центрируем по вертикали */
+  transform: translateY(-50%); /* Сдвигаем иконку для идеального центрирования */
+}
+
+.home-icon:hover {
+  color: #007BFF;  /* Цвет иконки меняется на синий */
+}
+
+/* Заголовок и навигация */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;  /* Центрируем элементы навигации */
+  align-items: center;
+  position: relative;  /* Чтобы иконка профиля оставалась на своем месте */
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s  /* Добавляем плавное увеличение */
+}
+
+header nav ul li a:hover {
+  color: #007BFF;  /* Цвет текста меняется на синий */
+}
+
+/* Профиль и иконка */
+.profile-icon {
+  font-size: 24px;
+  color: #fff;
+}
+
+.profile-icon:hover {
+  color: #007BFF;  /* Цвет иконки меняется на синий */
+}
+
+/* Основной контент */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #333;  /* Темный фон для основного контента */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Нижний колонтитул */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+footer nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+footer nav ul li a:hover {
+  color: #007BFF;  /* Цвет текста меняется на синий */
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+
+/* Кнопка меню для мобильных устройств */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  position: absolute;
+  top: 60px; /* Позиционирование меню */
+  right: 0;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+/* Активное состояние выпадающего меню */
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Профиль и иконка */
+.profile-icon {
+    display: block;
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  right: 15px;
+  top: 50%;  /* Центрируем по вертикали */
+  transform: translateY(-50%); /* Сдвигаем иконку для идеального центрирования */
+}
+
+.profile-icon:hover {
+  color: #007BFF;  /* Цвет иконки меняется на синий */
+}
+
+/* Контейнер для всех таблиц */
+.records-container {
+    display: flex; /* Горизонтальное выравнивание */
+    justify-content: space-around; /* Пространство между таблицами */
+    flex-wrap: wrap; /* Перенос на следующую строку, если не помещается */
+    gap: 20px; /* Расстояние между таблицами */
+    margin-top: 20px;
+}
+
+/* Блок для одной таблицы */
+.record-table {
+    flex: 1; /* Все таблицы равной ширины */
+    max-width: 30%; /* Максимальная ширина одной таблицы */
+    min-width: 300px; /* Минимальная ширина для удобного чтения */
+    background-color: #444; /* Темный фон для таблицы */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Заголовок таблицы */
+.record-table h2 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+/* Таблица */
+.record-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+.record-table th, .record-table td {
+    border: 1px solid #666;
+    padding: 8px;
+}
+
+.record-table th {
+    background-color: #555;
+}
+
+.record-table tr:nth-child(even) {
+    background-color: #333;
+}
+
+.record-table tr:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Общий стиль для кнопок */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* Белый текст */
+    background-color: #007BFF; /* Синий фон */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform .6s; /* Плавные эффекты */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Эффект наведения для кнопок */
+.btn:hover {
+    background-color: #0056b3; /* Более темный синий */
+    transform: translateY(-2px); /* Поднимаем кнопку */
+}
+
+/* Активное состояние кнопки */
+.btn:active {
+    background-color: #004085; /* Ещё более тёмный синий */
+    transform: translateY(0); /* Убираем подъем */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Для кнопки добавления результата (дополнительные стили, если нужно) */
+.add-record-btn {
+    margin-top: 20px; /* Отступ сверху */
+    margin-bottom: 20px; /* Отступ снизу */
+    align-self: flex-start; /* Выравнивание по началу, если кнопка в flex-контейнере */
+}
+
+/* Адаптивность */
+
+@media (max-width: 768px) {
+  /* Скрываем обычное меню и показываем кнопку */
+  header nav ul {
+    display: none;
+  }
+
+  .home-icon {
+    display: none;  /* Скрыть иконку на мобильных устройствах */
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Показываем выпадающее меню на мобильных */
+  .dropdown-menu.active {
+    display: block;
+    width: 100%;
+  }
+
+  /* Профильная иконка остается видимой и закреплена в правом верхнем углу */
+  .profile-icon {
+    position: fixed;
+    top: 22px;
+    right: 15px;
+    z-index: 1000; /* Чтобы иконка была поверх других элементов */
+  }
+
+  header nav {
+      display: flex;
+      justify-content: flex-start;  /* Центрируем элементы навигации */
+      align-items: center;
+      position: relative;  /* Чтобы иконка профиля оставалась на своем месте */
+    }
+
+  .record-table {
+        max-width: 100%; /* Таблицы занимают всю ширину */
+}

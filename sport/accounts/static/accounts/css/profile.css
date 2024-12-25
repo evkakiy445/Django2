@@ -1,0 +1,693 @@
+/* Общие стили для body и html */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #222;  /* Темный фон */
+  color: #fff;
+}
+
+/* Контейнер профиля */
+.profile-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #444;  /* Глубокий темный фон */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.logout-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #e53935;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #c62828;
+  transform: scale(1.05);
+}
+
+.logout-btn i {
+  margin-left: 10px;
+}
+
+.programs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.program {
+  background-color: #222;
+  width: 280px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.program:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.program-image {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.program-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.program-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.favorite-btn {
+  margin-top: 10px;
+}
+
+.favorite-btn a {
+  background-color: #e53935;
+  color: #fff;
+  padding: 8px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.favorite-btn a:hover {
+  background-color: #c62828;
+}
+
+.workout-results, .weight-tracking {
+  margin-bottom: 30px;
+}
+
+.result, .weight-entry {
+  background-color: #2c2c2c;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.result p, .weight-entry p {
+  margin: 0;
+}
+
+.add-workout-results a {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.add-workout-results a:hover {
+  background-color: #0288d1;
+}
+
+.btn-primary {
+  background-color: #0288d1;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0277bd;
+}
+
+.result {
+  background-color: #2c2c2c;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result p {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.delete-form {
+  margin: 0;
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    color: #e53935;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффекты при наведении */
+.btn-delete:hover {
+    color: #c62828;
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+}
+
+/* Иконка внутри кнопки */
+.btn-delete i {
+    pointer-events: none; /* Предотвращение конфликтов при клике */
+}
+
+/* Применение стилей только к форме внутри result-form-container */
+.result-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #333;  /* Темный фон для формы */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.result-form-container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.result-form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.result-form-container .form-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.result-form-container .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;  /* Темный фон для полей ввода */
+    border: 2px solid #007bff;  /* Синяя обводка */
+    color: #fff;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.result-form-container .form-control:focus {
+    border-color: #0056b3;  /* Более темная синяя граница при фокусе */
+    outline: none;
+}
+
+.result-form-container .form-buttons {
+    display: flex;
+    justify-content: space-between;  /* Выравнивание кнопок по краям */
+    gap: 15px;  /* Добавление промежутка между кнопками */
+    margin-top: 20px;
+}
+
+/* Кнопка добавления результата с иконкой */
+.result-form-container .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Отступ между текстом и иконкой */
+}
+
+.result-form-container .btn-primary i {
+    transition: transform 0.3s;
+    font-size: 16px;
+}
+
+.result-form-container .btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);  /* Увеличение кнопки при наведении */
+}
+
+.result-form-container .btn-primary:hover i {
+    transform: translateX(5px);  /* Сдвиг иконки вправо при наведении */
+}
+
+/* Кнопка "Назад" */
+.result-form-container .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.result-form-container .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Стили для контейнера формы */
+.result-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.result-form-container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.result-form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.result-form-container .form-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.result-form-container .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;
+    border: 2px solid #007bff;
+    color: #fff;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.result-form-container .form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.result-form-container .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.result-form-container .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-form-container .btn-primary i {
+    transition: transform 0.3s;
+    font-size: 16px;
+}
+
+.result-form-container .btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.result-form-container .btn-primary:hover i {
+    transform: translateX(5px);
+}
+
+.result-form-container .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.result-form-container .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Стили для секции отслеживания веса */
+.weight-tracking .weight-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+}
+
+/* Текст записи веса */
+.weight-tracking .weight-entry p {
+    margin: 0;
+    font-size: 16px;
+    color: #f1f1f1;
+    flex-grow: 1;
+}
+
+/* Кнопка удаления */
+.weight-tracking .btn-delete {
+    background-color: transparent;
+    border: none;
+    color: #e53935;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Анимации при наведении */
+.weight-tracking .btn-delete:hover {
+    color: #c62828;
+    transform: scale(1.1);
+}
+
+/* Иконка внутри кнопки */
+.weight-tracking .btn-delete i {
+    pointer-events: none; /* Предотвращение конфликтов при клике */
+}
+
+.add-workout-results a, .favorite-btn a, .btn-primary {
+  color: white; /* Белый цвет текста */
+  text-decoration: none; /* Убираем подчеркивание */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Анимация для фона и масштаба */
+}
+
+/* Анимация при наведении на кнопки */
+.add-workout-results a:hover, .favorite-btn a:hover, .btn-primary:hover {
+  color: white; /* Белый цвет текста при наведении */
+  text-decoration: none; /* Убираем подчеркивание при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  background-color: #0277bd; /* Цвет фона при наведении */
+}
+
+.add-workout-results a:hover, .favorite-btn a:hover, .btn-primary:hover {
+  transform: scale(1.05); /* Легкое увеличение кнопки */
+  background-color: #0277bd; /* Цвет фона при наведении */
+}
+
+/* Стили для таблицы */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.table th {
+    background-color: #0288d1;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #444;
+}
+
+.table tr:hover {
+    background-color: #555;
+}
+
+/* Стили для кнопки внутри таблицы */
+.table td button {
+    border: none;
+    background: transparent;
+    color: #e53935;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Основная кнопка "Удалить" внутри таблицы */
+.table td .btn-danger {
+    background-color: transparent;
+    color: #e53935;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+}
+
+/* Уменьшенная кнопка "Удалить" внутри таблицы */
+.table td .btn-danger.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Иконка удаления внутри кнопки */
+.table td .btn-danger i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #e53935; /* Красная иконка */
+    transition: color 0.2s;
+}
+
+/* Эффект на иконку при наведении внутри таблицы */
+.table td .btn-danger:hover i {
+    color: #c62828; /* Темно-красный цвет иконки при наведении */
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Уменьшаем размер заголовка на мобильных */
+  }
+
+  .programs-list {
+    flex-direction: column; /* Программы в одну колонку */
+    align-items: center;
+  }
+
+  .program {
+    width: 100%; /* Программы занимают всю ширину на мобильных */
+  }
+
+  .logout-btn {
+    font-size: 0.9rem; /* Уменьшаем размер кнопки */
+  }
+}
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .program {
+    width: 45%; /* Программы занимают 45% ширины на планшетах */
+  }
+}
+
+/* Стили для кнопок */
+.btn-primary {
+  background-color: #0288d1;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0277bd;
+}
+
+/* Стили для формы */
+.result-form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.result-form-container h2 {
+  font-size: 1.75rem; /* Используем rem */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Стили для таблицы */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    border-collapse: collapse;
+    overflow-x: auto;  /* Горизонтальная прокрутка для маленьких экранов */
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.table th {
+    background-color: #0288d1;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #444;
+}
+
+.table tr:hover {
+    background-color: #555;
+}
+
+/* Стили для кнопки внутри таблицы */
+.table td button {
+    border: none;
+    background: transparent;
+    color: #e53935;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Основная кнопка "Удалить" внутри таблицы */
+.table td .btn-danger {
+    background-color: transparent;
+    color: #e53935;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+}
+
+/* Уменьшенная кнопка "Удалить" внутри таблицы */
+.table td .btn-danger.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Иконка удаления внутри кнопки */
+.table td .btn-danger i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #e53935;
+    transition: color 0.2s;
+}
+
+/* Эффект на иконку при наведении внутри таблицы */
+.table td .btn-danger:hover i {
+    color: #c62828;
+}
+
+/* Адаптивность для таблицы на маленьких экранах */
+@media (max-width: 768px) {
+    .table {
+        display: block;  /* Делаем таблицу блочной для добавления прокрутки */
+        overflow-x: auto;
+        white-space: nowrap;  /* Убираем обтекание текста в ячейках */
+    }
+
+    .table th, .table td {
+        padding: 8px;  /* Уменьшаем отступы для мобильных */
+        font-size: 14px;  /* Уменьшаем размер шрифта */
+    }
+
+    /* Уменьшаем шрифт заголовков таблицы на мобильных */
+    .table th {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table th, .table td {
+        padding: 6px;  /* Уменьшаем отступы еще больше на очень маленьких экранах */
+        font-size: 12px;  /* Уменьшаем шрифт */
+    }
+
+    .table td .btn-danger {
+        font-size: 14px;  /* Меньший размер шрифта для кнопки */
+    }
+}
+
+/* Адаптивность для формы */
+@media (max-width: 768px) {
+  .result-form-container {
+    padding: 20px;
+  }
+
+  .result-form-container h2 {
+    font-size: 1.5rem; /* Уменьшаем размер заголовка в форме */
+  }
+
+  .result-form-container .form-control {
+    padding: 8px;
+  }
+}

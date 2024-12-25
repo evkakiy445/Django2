@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+    <section class="hero">
+      <div class="image-placeholder">
+        <img src="{% static 'main/img/sports.png' %}" alt="Программа тренировки" />
+      </div>
+      <div class="text-content">
+        <h1>Программы тренировок для похудения и набора массы</h1>
+        <p>Выбери подходящую для себя программу тренировок для дома и зала</p>
+        <a href="{% url 'workout_list' %}" class="btn">Выбрать программу <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section class="popular-programs">
+      <h2>Популярные программы</h2>
+      <div class="programs-list">
+        {% for program in popular_programs %}
+        <a href="{% url 'workout_detail' program.pk %}" class="program">
+          <img src="{{ program.image.url }}" alt="{{ program.title }}" />
+          <p>{{ program.title }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'reviews/layuot.html' %}
+{% load static %}
+
+{% block title %}Отзывы о программе "{{ program.title }}"{% endblock %}
+
+{% block content %}
+    <div class="program-reviews-container">
+        <div class="header-buttons">
+            <a class="back-btn" href="{% url 'workout_detail' program.pk %}">Назад</a>
+            <a class="add-review-btn" href="{% url 'add_review' program.pk %}">Добавить отзыв</a>
+        </div>
+        <h1>Отзывы о программе "{{ program.title }}"</h1>
+
+        {% if average_rating %}
+            <h3>Средняя оценка: {{ average_rating|floatformat:1 }} / 5</h3>
+        {% else %}
+            <p>Средняя оценка пока не доступна (отзывов нет).</p>
+        {% endif %}
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if reviews %}
+            <div class="reviews-list">
+                <ul>
+                    {% for review in reviews %}
+                        <li class="review-item">
+                            <div class="review-content">
+                                <div class="review-header">
+                                    <strong>{{ review.user.username }}</strong>
+                                    <span class="review-rating">{{ review.rating }} / 5</span>
+                                </div>
+                                <p>{{ review.text }}</p>
+                            </div>
+                            {% if review.user == request.user %}
+                                <form method="post" action="{% url 'delete_review' review.id %}" class="delete-review-form">
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-review-btn">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>Отзывов пока нет.</p>
+        {% endif %}
+    </div>
+{% endblock %}

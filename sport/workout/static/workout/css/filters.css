@@ -1,0 +1,93 @@
+/* Стили для фильтров */
+.filters {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #444; /* Темный фон для фильтров */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters form {
+  display: flex;
+  justify-content: space-between; /* Равномерное распределение элементов */
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Позволяем перенос элементов на новую строку */
+}
+
+.filters select {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #333; /* Темный фон для выпадающих списков */
+  color: #fff; /* Белый текст */
+  border: 1px solid #555; /* Светлый контур */
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.filters select:hover,
+.filters select:focus {
+  border-color: #007BFF; /* Синий контур при наведении и фокусе */
+}
+
+.filters label {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.filters button {
+  padding: 10px 20px;
+  background-color: #007BFF; /* Синий фон для кнопки */
+  color: #fff; /* Белый текст */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #0056b3; /* Темно-синий фон при наведении */
+}
+
+/* Кнопка сброса фильтров */
+.reset-button {
+  padding: 10px 20px;
+  background-color: #555; /* Темный фон для кнопки сброса */
+  color: #fff; /* Белый текст */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #007BFF; /* Синий фон при наведении */
+}
+
+/* Выровняем кнопку сброса рядом с кнопкой "Применить" */
+.filters form .buttons {
+  display: flex;
+  gap: 10px; /* Пространство между кнопками */
+}
+
+/* Мобильная адаптация для фильтров */
+@media (max-width: 768px) {
+  .filters form {
+    flex-direction: column; /* Перестраиваем элементы в колонку */
+    align-items: stretch; /* Растягиваем элементы по ширине */
+    gap: 15px;
+  }
+
+  .filters select,
+  .filters button,
+  .reset-button {
+    width: 100%; /* Элементы занимают всю ширину */
+  }
+
+  .filters form .buttons {
+    flex-direction: column; /* Вертикальная компоновка кнопок */
+  }
+}

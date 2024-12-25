@@ -1,0 +1,32 @@
+{% extends 'reviews/layuot.html' %}
+{% load static %}
+
+{% block title %}Добавить отзыв о программе "{{ program.title }}"{% endblock %}
+
+{% block content %}
+    <div class="program-reviews-container">
+        <h1>Добавить отзыв о программе "{{ program.title }}"</h1>
+
+        <form method="post" class="review-form">
+            {% csrf_token %}
+            <textarea name="text" placeholder="Ваш отзыв..." required></textarea><br>
+
+            <label for="rating">Оценка:</label>
+            <select name="rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <div class="button-container">
+                <!-- Кнопка назад -->
+                <a href="{% url 'program_reviews' program.pk %}" class="back-btn">Назад</a>
+
+                <!-- Кнопка отправить -->
+                <button type="submit" class="submit-btn">Отправить</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

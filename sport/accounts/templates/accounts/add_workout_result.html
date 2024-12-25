@@ -1,0 +1,30 @@
+{% extends 'accounts/layout.html' %}
+
+{% block title %}Добавить результат{% endblock %}
+
+{% block content %}
+<div class="container mt-5 result-form-container">
+    <h2>Добавить результат для {{ exercise.name }} из программы {{ program.title }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="repetitions" class="form-label">Повторений:</label>
+            <input type="number" name="repetitions" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="weight" class="form-label">Вес (кг):</label>
+            <input type="number" step="0.1" name="weight" class="form-control">
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-primary">
+                Добавить результат
+                <i class="fas fa-plus"></i>
+            </button>
+            <a href="{% url 'profile' %}" class="btn btn-danger">Назад</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

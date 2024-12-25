@@ -1,0 +1,10 @@
+{% extends 'records/layout.html' %}
+
+{% block content %}
+<h1>Добавить результат</h1>
+<form method="post" class="form-container">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+{% endblock %}
